@@ -30,7 +30,7 @@
 # 
 
 from ._xpcapi import (
-    _xpcapi, XpcError, decode, dirStruct,
+    _xpcapi, XpcError, decode, dirStruct, diskinfo,
     MAX_ERR_MSG_LENGTH, MAX_SCOPES, MAX_SIGNALS,
     COMMTYP, SCTYPE, TRIGMD, TRIGSLOPE, SCMODE, SCST, LGMOD
     )
@@ -531,4 +531,8 @@ class XpcApi(_xpcapi):
         super().addScope(type, id)
         
         return XpcScope(self, id)
+        
+    def getDiskInfo(self,driveLetter):
+        return self.fSDiskInfo(driveLetter)
+
     

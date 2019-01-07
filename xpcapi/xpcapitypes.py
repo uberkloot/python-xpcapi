@@ -70,11 +70,31 @@ class dirStruct(Structure):
     
         ]
 
-
+class diskinfo(Structure):
+    _fields_ = [
+        ('DriveLetter',c_char),
+        ('Label',c_char*3),
+        ('Reserved',c_char*0),
+        ('SerialNumber',c_int),
+        ('FirstPhysicalSector',c_char),
+        ('FATType',c_double), 
+        ('FATCount',c_char),
+        ('MaxDirEntries',c_char),
+        ('BytesPerSector',c_char),
+        ('SectorsPerCluster',c_char),
+        ('TotalClusters',c_char),
+        ('BadClusters',c_char),
+        ('FreeClusters',c_char),
+        ('Files',c_char),
+        ('FileChains',c_char),
+        ('FreeChains',c_char),
+        ('LargestFreeChain',c_int),
+#        ('DriveType',char*11),
+        ]
+        
 
 # To be implemented
 lgmode = c_int
-diskinfo = c_int
 fileinfo = c_int
 
 __all__ = ['scopedata', 'lgmode', 'diskinfo', 'dirStruct', 'fileinfo']
